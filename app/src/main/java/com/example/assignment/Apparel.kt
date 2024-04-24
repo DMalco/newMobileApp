@@ -1,6 +1,6 @@
 package com.example.assignment
 
-import androidx.compose.foundation.ExperimentalFoundationApi
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -25,7 +25,14 @@ import androidx.compose.ui.unit.sp
 import com.example.assignment.ui.theme.SBLightGreen
 import com.example.navapp.R
 
-@OptIn(ExperimentalFoundationApi::class)
+
+
+
+
+
+
+
+
 @Composable
 fun Apparel() {
     Column(
@@ -68,6 +75,7 @@ fun ImageSlider(imageList: List<Int>, modifier: Modifier = Modifier) {
 @Composable
 fun SampleImageSlider() {
     val imageList = listOf(
+
         R.drawable.shanger3,
         R.drawable.shanger4,
         R.drawable.shanger,
@@ -82,3 +90,4 @@ fun SampleImageSlider() {
 fun ApparelPreview() {
     Apparel()
 }
+//save

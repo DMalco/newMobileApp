@@ -369,7 +369,7 @@ fun BottomSheetItem(icon: ImageVector, title: String, onClick: () -> Unit){
 
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+
 @Preview
 @Composable
 fun BottomAppBarPreview() {
