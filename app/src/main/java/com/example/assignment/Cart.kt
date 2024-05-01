@@ -37,7 +37,7 @@ fun Cart(){
             Spacer(modifier = Modifier.height(192.dp))
 
             Image(
-                painter = painterResource(id = R.drawable.cart),
+                painter = painterResource(id = R.drawable.shoppingcart),
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
