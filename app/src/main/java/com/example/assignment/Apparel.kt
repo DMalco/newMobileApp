@@ -23,7 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.assignment.ui.theme.SBLightGreen
-import com.example.navapp.R
+
 
 
 
@@ -43,12 +43,14 @@ fun Apparel() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
+        Text(text = "Catalogue", fontSize = 30.sp, color = Color.Black)
+        Text(text = "Our current stock", fontSize = 16.sp, color = Color.Black)
+        Spacer(modifier = Modifier.height(32.dp))
         SampleImageSlider()
 
-        Spacer(modifier = Modifier.height(32.dp)) // Increase the height of the Spacer
 
-        Text(text = "Apparel", fontSize = 30.sp, color = Color.White)
-        Text(text = "Our clothes here", fontSize = 16.sp, color = Color.White)
+
     }
 }
 
@@ -76,10 +78,13 @@ fun ImageSlider(imageList: List<Int>, modifier: Modifier = Modifier) {
 fun SampleImageSlider() {
     val imageList = listOf(
 
-        R.drawable.shanger3,
-        R.drawable.shanger4,
-        R.drawable.shanger,
-        R.drawable.shanger2,
+        R.drawable.dressshirt,
+        R.drawable.pngegg,
+        R.drawable.suit,
+        R.drawable.suit2,
+        R.drawable.wblouse,
+        R.drawable.wreblouse,
+        R.drawable.wsuit
 
         )
     ImageSlider(imageList = imageList)
