@@ -23,6 +23,7 @@ import androidx.compose.material.icons.filled.Help
 import androidx.compose.material.icons.filled.Login
 import androidx.compose.material.icons.filled.Logout
 import androidx.compose.material.icons.filled.Mail
+import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.outlined.ExpandCircleDown
 import androidx.compose.material.icons.outlined.HelpOutline
@@ -323,6 +324,8 @@ fun BottomAppBar() {
             composable(Screens.Help.screen) { Help() }
             composable(Screens.Contact.screen) { Contact() }
             composable(Screens.Cart.screen) { Cart() }
+            composable(Screens.Booking.screen) { Booking() }
+            composable(Screens.BookingConfirm.screen) { BookingConfirm() }
         }
 
     }
@@ -339,9 +342,17 @@ fun BottomAppBar() {
             ){
                 BottomSheetItem(icon = Icons.Filled.ShoppingCart, title = "Cart") {
                     showBottomSheet = false
-                    navigationController.navigate(Screens.Cart.screen){
+                    navigationController.navigate(Screens.Cart.screen) {
                         popUpTo(0)
                     }
+                }
+
+                    BottomSheetItem(icon = Icons.Filled.Schedule, title = "Make a Booking") {
+                        showBottomSheet = false
+                        navigationController.navigate(Screens.Booking.screen){
+                            popUpTo(0)
+                        }
+
                 }
                 BottomSheetItem(icon = Icons.Default.Login, title = "Login") {
                     Toast.makeText(context, "Login", Toast.LENGTH_SHORT).show()

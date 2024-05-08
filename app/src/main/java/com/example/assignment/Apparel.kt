@@ -25,14 +25,6 @@ import androidx.compose.ui.unit.sp
 import com.example.assignment.ui.theme.SBLightGreen
 
 
-
-
-
-
-
-
-
-
 @Composable
 fun Apparel() {
     Column(
@@ -46,7 +38,7 @@ fun Apparel() {
 
         Text(text = "Catalogue", fontSize = 30.sp, color = Color.Black)
         Text(text = "Our current stock", fontSize = 16.sp, color = Color.Black)
-        Spacer(modifier = Modifier.height(32.dp))
+        Spacer(modifier = Modifier.height(64.dp))
         SampleImageSlider()
 
 
