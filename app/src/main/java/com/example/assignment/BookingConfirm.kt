@@ -22,6 +22,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.assignment.R
 import com.example.assignment.ui.theme.SBLightGreen
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+
 
 @Composable
 fun BookingConfirm(){
@@ -38,7 +41,7 @@ fun BookingConfirm(){
             Text(text = "Your booking is confirmed!", fontSize = 16.sp, color = Color.Black)
 
             Image(
-                painter = painterResource(id = R.drawable.shoppingcart),
+                painter = painterResource(id = R.drawable.tick),
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier

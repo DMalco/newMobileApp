@@ -33,15 +33,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.assignment.ui.theme.SBLightGreen
-import com.example.assignment.ui.theme.SBOffWhite
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.ui.text.style.TextAlign
-
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.NavHostController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Booking() {
+fun Booking(navController: NavHostController) {
     var selectedDate by remember { mutableStateOf("") }
     var selectedTime by remember { mutableStateOf("") }
 
@@ -112,7 +114,7 @@ fun Booking() {
                     Image(
                         painter = painterResource(id = R.drawable.calendericon),
                         contentDescription = null, // content description
-                        modifier = Modifier.size(300.dp)
+                        modifier = Modifier.size(200.dp)
                     )
 
                     // Text
@@ -121,11 +123,11 @@ fun Booking() {
                            modifier = Modifier.padding(start = 8.dp)
                        )*/
                 }
-                Spacer(modifier = Modifier.height(64.dp))
+                Spacer(modifier = Modifier.height(32.dp))
 
                 // Booking Button
                 Button(
-                    onClick = { Screens.BookingConfirm.screen },
+                    onClick = { navController.navigate(Screens.BookingConfirm.screen)},
                     modifier = Modifier.fillMaxWidth(),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.White,
@@ -140,8 +142,14 @@ fun Booking() {
     )
 }
 
+
 @Preview
 @Composable
 fun BookingPreview() {
-    Booking()
+    val navController = rememberNavController()
+    NavHost(navController = navController, startDestination = "booking") {
+        composable(route = "booking") {
+            Booking(navController = navController)
+        }
+    }
 }

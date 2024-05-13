@@ -324,8 +324,10 @@ fun BottomAppBar() {
             composable(Screens.Help.screen) { Help() }
             composable(Screens.Contact.screen) { Contact() }
             composable(Screens.Cart.screen) { Cart() }
-            composable(Screens.Booking.screen) { Booking() }
             composable(Screens.BookingConfirm.screen) { BookingConfirm() }
+            composable(Screens.Booking.screen) {
+                Booking(navController = navigationController)
+            }
         }
 
     }
@@ -342,17 +344,15 @@ fun BottomAppBar() {
             ){
                 BottomSheetItem(icon = Icons.Filled.ShoppingCart, title = "Cart") {
                     showBottomSheet = false
-                    navigationController.navigate(Screens.Cart.screen) {
+                    navigationController.navigate(Screens.Cart.screen){
                         popUpTo(0)
                     }
                 }
-
-                    BottomSheetItem(icon = Icons.Filled.Schedule, title = "Make a Booking") {
-                        showBottomSheet = false
-                        navigationController.navigate(Screens.Booking.screen){
-                            popUpTo(0)
-                        }
-
+                BottomSheetItem(icon = Icons.Filled.Schedule, title = "Make a Booking"){
+                    showBottomSheet = false
+                    navigationController.navigate(Screens.Booking.screen){
+                        popUpTo(0)
+                    }
                 }
                 BottomSheetItem(icon = Icons.Default.Login, title = "Login") {
                     Toast.makeText(context, "Login", Toast.LENGTH_SHORT).show()

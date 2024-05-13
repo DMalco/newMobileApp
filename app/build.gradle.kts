@@ -68,6 +68,10 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(libs.material.icons.extended)
+    implementation("androidx.navigation:navigation-compose:2.4.0-alpha10")
+    implementation("androidx.compose.ui:ui:1.0.5")
+    implementation("androidx.compose.material:material:1.0.5")
+    implementation("androidx.activity:activity-compose:1.3.1")
 
     val nav_version = "2.7.7"
 
