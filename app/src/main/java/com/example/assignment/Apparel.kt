@@ -87,4 +87,3 @@ fun SampleImageSlider() {
 fun ApparelPreview() {
     Apparel()
 }
-//save

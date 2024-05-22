@@ -69,10 +69,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             NavappTheme {
-                // A surface container using the 'background' color from the theme
+
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    //color = MaterialTheme.colorScheme.background
+
                 ) {
 
                     BottomAppBar()
@@ -107,11 +107,11 @@ fun BottomAppBar() {
                 containerColor = SBOffWhite
 
             ) {
-                Row( // Wrap in a Row for horizontal placement
-                    modifier = Modifier.weight(1f) // Divide weight equally
+                Row(
+                    modifier = Modifier.weight(1f)
 
                 ) {
-                    Column( // Stack icon and text vertically
+                    Column(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         modifier = Modifier
                             .fillMaxSize()
@@ -131,7 +131,7 @@ fun BottomAppBar() {
                                     imageVector = if (selected.value == Icons.Rounded.Home) {
                                         Icons.Rounded.Home
                                     } else {
-                                        Icons.Outlined.Home // Change to the outline version when not selected
+                                        Icons.Outlined.Home
                                     },
                                     contentDescription = null,
                                     modifier = Modifier.size(24.dp)
@@ -139,11 +139,11 @@ fun BottomAppBar() {
 
                                 )
                             }
-                            Text( // Add Text for the title
+                            Text(
                                 text = "Home",
                                 fontSize = 12.sp,
                                 modifier = Modifier.padding(start = 1.dp)
-                                // Add padding for spacing
+
                             )
                         }
                     }
@@ -152,11 +152,11 @@ fun BottomAppBar() {
                 Spacer(modifier = Modifier.weight(1f))
 
 
-                Row( // Wrap in a Row for horizontal placement
-                    modifier = Modifier.weight(1.5f) // Divide weight equally
+                Row(
+                    modifier = Modifier.weight(1.5f)
 
                 ) {
-                    Column( // Stack icon and text vertically
+                    Column(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         modifier = Modifier
                             .fillMaxSize()
@@ -175,7 +175,7 @@ fun BottomAppBar() {
                                     imageVector = if (selected.value == Icons.Rounded.ShoppingBag) {
                                         Icons.Rounded.ShoppingBag
                                     } else {
-                                        Icons.Outlined.ShoppingBag // Change to the outline version when not selected
+                                        Icons.Outlined.ShoppingBag
                                     },
                                     contentDescription = null,
                                     modifier = Modifier.size(24.dp),
@@ -184,20 +184,20 @@ fun BottomAppBar() {
                             Text( // Add Text for the title
                                 text = "Apparel",
                                 fontSize = 12.sp,
-                                modifier = Modifier.padding(start = 1.dp) // Add padding for spacing
+                                modifier = Modifier.padding(start = 1.dp)
                             )
                         }
                     }
                 }
 
-                Spacer(modifier = Modifier.weight(1f)) // Add Spacer between items
+                Spacer(modifier = Modifier.weight(1f))
 
 
-                Row( // Wrap in a Row for horizontal placement
-                    modifier = Modifier.weight(1.5f) // Divide weight equally
+                Row(
+                    modifier = Modifier.weight(1.5f)
 
                 ) {
-                    Column( // Stack icon and text vertically
+                    Column(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         modifier = Modifier
                             .fillMaxSize()
@@ -214,22 +214,21 @@ fun BottomAppBar() {
                             }
                         }
 
-                        Text( // Add Text for the title
+                        Text(
                             text = "More",
                             color = Color.Black,
                             fontSize = 12.sp,
-                            modifier = Modifier.padding(start = 1.dp) // Add padding for spacing
-                        )
+                            modifier = Modifier.padding(start = 1.dp))
                     }
                 }
 
 
-                Spacer(modifier = Modifier.weight(1f)) // Add Spacer between items
+                Spacer(modifier = Modifier.weight(1f))
 
-                Row( // Wrap in a Row for horizontal placement
-                    modifier = Modifier.weight(1f) // Divide weight equally
+                Row(
+                    modifier = Modifier.weight(1f)
                 ) {
-                    Column( // Stack icon and text vertically
+                    Column(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         modifier = Modifier
                             .fillMaxSize()
@@ -248,32 +247,30 @@ fun BottomAppBar() {
                                     imageVector = if (selected.value == Icons.Filled.Help) {
                                         Icons.Rounded.Help
                                     } else {
-                                        Icons.Outlined.HelpOutline // Change to the outline version when not selected
+                                        Icons.Outlined.HelpOutline
                                     },
                                     contentDescription = null,
                                     modifier = Modifier.size(24.dp),
                                 )
                             }
-                            Text( // Add Text for the title
+                            Text(
                                 text = "Help",
                                 fontSize = 12.sp,
-                                modifier = Modifier.padding(start = 1.dp) // Add padding for spacing
-                            )
+                                modifier = Modifier.padding(start = 1.dp)                             )
                         }
 
                     }
                 }
 
-// Close the Column for the second button
-// Close the Row for horizontal placement
 
 
-                Spacer(modifier = Modifier.weight(1f)) // Add Spacer between items
-                Row( // Wrap in a Row for horizontal placement
-                    modifier = Modifier.weight(1.5f) // Divide weight equally
+
+                Spacer(modifier = Modifier.weight(1f))
+                Row(
+                    modifier = Modifier.weight(1.5f)
 
                 ) {
-                    Column( // Stack icon and text vertically
+                    Column(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         modifier = Modifier.fillMaxSize()
                     ) {
@@ -290,18 +287,16 @@ fun BottomAppBar() {
                                     imageVector = if (selected.value == Icons.Filled.Mail) {
                                         Icons.Filled.Mail
                                     } else {
-                                        Icons.Outlined.Mail // Change to the outline version when not selected
-                                    },
+                                        Icons.Outlined.Mail                                     },
                                     contentDescription = null,
                                     modifier = Modifier.size(24.dp),
                                 )
                             }
 
-                            Text( // Add Text for the title
+                            Text(
                                 text = "Contact",
                                 fontSize = 12.sp,
-                                modifier = Modifier.padding(start = 1.dp) // Add padding for spacing
-                            )
+                                modifier = Modifier.padding(start = 1.dp)                        )
                         }
 
                     }

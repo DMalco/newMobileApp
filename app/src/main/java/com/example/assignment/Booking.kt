@@ -41,6 +41,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.NavHostController
 
+val SBOffWhite = Color(0xffffaf7f0)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Booking(navController: NavHostController) {
@@ -56,7 +57,7 @@ fun Booking(navController: NavHostController) {
                         fontSize = 32.sp,
                         color = Color.Black,
                         modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Center // Align the text centrally
+                        textAlign = TextAlign.Center
                     )
                 },
                 colors = TopAppBarDefaults.smallTopAppBarColors(
@@ -77,7 +78,6 @@ fun Booking(navController: NavHostController) {
                 verticalArrangement = Arrangement.spacedBy(16.dp)
 
             ) {
-                // Date selection or what ever text you want here
                 Text("Make a Booking", fontSize = 32.sp, color = Color.Black)
 
                 Spacer(modifier = Modifier.height(64.dp))
@@ -92,7 +92,7 @@ fun Booking(navController: NavHostController) {
                         .align(Alignment.CenterHorizontally)
                 )
 
-                // Time selection
+
                 OutlinedTextField(
                     value = selectedTime,
                     onValueChange = { selectedTime = it },
@@ -104,7 +104,7 @@ fun Booking(navController: NavHostController) {
                 )
                 Spacer(modifier = Modifier.height(32.dp))
 
-                // Image and Text Row
+
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceEvenly,
@@ -113,15 +113,11 @@ fun Booking(navController: NavHostController) {
                     // Image
                     Image(
                         painter = painterResource(id = R.drawable.calendericon),
-                        contentDescription = null, // content description
+                        contentDescription = null,
                         modifier = Modifier.size(200.dp)
                     )
 
-                    // Text
-                    /*   Text(
-                           text = "Your text here",
-                           modifier = Modifier.padding(start = 8.dp)
-                       )*/
+
                 }
                 Spacer(modifier = Modifier.height(32.dp))
 
@@ -130,7 +126,7 @@ fun Booking(navController: NavHostController) {
                     onClick = { navController.navigate(Screens.BookingConfirm.screen)},
                     modifier = Modifier.fillMaxWidth(),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = Color.White,
+                        containerColor = SBOffWhite,
                         contentColor = Color.Black
                     )
 
