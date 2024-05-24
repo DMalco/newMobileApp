@@ -1,7 +1,7 @@
 package com.example.assignment
 
-
-
+// Importing necessary Android and Compose libraries
+import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -63,18 +63,20 @@ import com.example.assignment.ui.theme.NavappTheme
 import com.example.assignment.ui.theme.SBLightGreen
 import com.example.assignment.ui.theme.SBOffWhite
 
-
+// MainActivity class for the main entry point of the app
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            // Setting up the theme for the entire app
             NavappTheme {
 
                 Surface(
                     modifier = Modifier.fillMaxSize(),
 
-                ) {
+                    ) {
 
+                    // Displaying the bottom app bar
                     BottomAppBar()
 
                 }
@@ -83,44 +85,57 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
 /***   Bottom Bar   ***/
+// Add a function to show a "Coming soon!" toast
+fun showComingSoonToast(context: Context, actionName: String) {
+    Toast.makeText(context, "Coming soon! $actionName", Toast.LENGTH_SHORT).show()
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BottomAppBar() {
 
+    // Navigation controller for managing navigation within the app
     val navigationController = rememberNavController()
+    // Accessing the application context
     val context = LocalContext.current.applicationContext
+    // State to track the selected icon in the bottom app bar
     val selected = remember {
         mutableStateOf(Icons.Rounded.Home)
     }
 
+    // State to manage the modal bottom sheet
     val sheetState = rememberModalBottomSheetState()
     var showBottomSheet by remember {
         mutableStateOf(false)
     }
 
-
+    // Scaffold composable for setting up the layout structure
     Scaffold(
         bottomBar = {
+            // Bottom app bar with icons for navigation
             androidx.compose.material3.BottomAppBar(
                 containerColor = SBOffWhite
 
             ) {
+                // Row for arranging the icons horizontally
                 Row(
                     modifier = Modifier.weight(1f)
 
                 ) {
+                    // Column for each icon and its label
                     Column(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         modifier = Modifier
                             .fillMaxSize()
                             .height(42.dp)
                     ) {
+                        // Home icon and label
                         CompositionLocalProvider(LocalContentColor provides Color.Black) {
                             IconButton(
                                 onClick = {
                                     selected.value = Icons.Rounded.Home
+                                    // Navigate to the Home screen
                                     navigationController.navigate(Screens.Home.screen) {
                                         popUpTo(0)
                                     }
@@ -218,7 +233,8 @@ fun BottomAppBar() {
                             text = "More",
                             color = Color.Black,
                             fontSize = 12.sp,
-                            modifier = Modifier.padding(start = 1.dp))
+                            modifier = Modifier.padding(start = 1.dp)
+                        )
                     }
                 }
 
@@ -256,7 +272,8 @@ fun BottomAppBar() {
                             Text(
                                 text = "Help",
                                 fontSize = 12.sp,
-                                modifier = Modifier.padding(start = 1.dp)                             )
+                                modifier = Modifier.padding(start = 1.dp)
+                            )
                         }
 
                     }
@@ -287,7 +304,8 @@ fun BottomAppBar() {
                                     imageVector = if (selected.value == Icons.Filled.Mail) {
                                         Icons.Filled.Mail
                                     } else {
-                                        Icons.Outlined.Mail                                     },
+                                        Icons.Outlined.Mail
+                                    },
                                     contentDescription = null,
                                     modifier = Modifier.size(24.dp),
                                 )
@@ -296,7 +314,8 @@ fun BottomAppBar() {
                             Text(
                                 text = "Contact",
                                 fontSize = 12.sp,
-                                modifier = Modifier.padding(start = 1.dp)                        )
+                                modifier = Modifier.padding(start = 1.dp)
+                            )
                         }
 
                     }
@@ -327,36 +346,38 @@ fun BottomAppBar() {
 
     }
 
-    if (showBottomSheet){
-        ModalBottomSheet(onDismissRequest = { showBottomSheet = false },
+    if (showBottomSheet) {
+        ModalBottomSheet(
+            onDismissRequest = { showBottomSheet = false },
             sheetState = sheetState
         ) {
-            Column (modifier = Modifier
-                .fillMaxWidth()
-                .background(SBOffWhite)
-                .padding(18.dp),
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(SBOffWhite)
+                    .padding(18.dp),
                 verticalArrangement = Arrangement.spacedBy(28.dp)
-            ){
+            ) {
                 BottomSheetItem(icon = Icons.Filled.ShoppingCart, title = "Cart") {
                     showBottomSheet = false
-                    navigationController.navigate(Screens.Cart.screen){
+                    navigationController.navigate(Screens.Cart.screen) {
                         popUpTo(0)
                     }
                 }
-                BottomSheetItem(icon = Icons.Filled.Schedule, title = "Make a Booking"){
+                BottomSheetItem(icon = Icons.Filled.Schedule, title = "Make a Booking") {
                     showBottomSheet = false
-                    navigationController.navigate(Screens.Booking.screen){
+                    navigationController.navigate(Screens.Booking.screen) {
                         popUpTo(0)
                     }
                 }
                 BottomSheetItem(icon = Icons.Default.Login, title = "Login") {
-                    Toast.makeText(context, "Login", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Coming Soon!", Toast.LENGTH_SHORT).show()
                 }
                 BottomSheetItem(icon = Icons.Default.Logout, title = "Logout") {
-                    Toast.makeText(context, "Logout", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Coming Soon!", Toast.LENGTH_SHORT).show()
                 }
                 BottomSheetItem(icon = Icons.Default.Edit, title = "Register") {
-                    Toast.makeText(context, "Register", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Coming Soon!", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -364,7 +385,7 @@ fun BottomAppBar() {
 }
 
 @Composable
-fun BottomSheetItem(icon: ImageVector, title: String, onClick: () -> Unit){
+fun BottomSheetItem(icon: ImageVector, title: String, onClick: () -> Unit) {
     Row(verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(12.dp),
         modifier = Modifier.clickable { onClick() }

@@ -22,33 +22,38 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.assignment.ui.theme.SBLightGreen
 
-
+// Function to display the shopping cart screen
 @Composable
-fun Cart(){
+fun Cart() {
+    // Box layout to contain other elements
     Box(modifier = Modifier.fillMaxSize()) {
+        // Column layout to arrange items vertically
         Column(
             modifier = Modifier
-                .fillMaxSize()
-                .background(SBLightGreen)
-                .align(Alignment.Center),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally) {
+                .fillMaxSize() // Fill the entire screen
+                .background(SBLightGreen) // Set background color
+                .align(Alignment.Center), // Center the column within the box
+            verticalArrangement = Arrangement.Center, // Center content vertically
+            horizontalAlignment = Alignment.CenterHorizontally // Center content horizontally
+        ) {
+            // Title text
             Text(text = "Shopping Cart", fontSize = 30.sp, color = Color.Black)
+            // Spacer to add space
             Spacer(modifier = Modifier.height(192.dp))
-
+            // Image for the shopping cart
             Image(
                 painter = painterResource(id = R.drawable.shoppingcart),
                 contentDescription = null,
-                contentScale = ContentScale.Crop,
+                contentScale = ContentScale.Crop, // Crop the image to fit
                 modifier = Modifier
-                    .size(350.dp, 300.dp)
-                    .padding(vertical = 8.dp)
+                    .size(350.dp, 300.dp) // Set image size
+                    .padding(vertical = 8.dp) // Padding around the image
             )
-
-
         }
     }
 }
+
+// Preview function to display the Cart composable in Android Studio
 @Preview
 @Composable
 fun CartPreview() {

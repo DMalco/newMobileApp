@@ -25,34 +25,40 @@ import com.example.assignment.ui.theme.SBLightGreen
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 
-
+// Function to display the booking confirmation screen
 @Composable
-fun BookingConfirm(){
+fun BookingConfirm() {
+    // Box layout to contain other elements
     Box(modifier = Modifier.fillMaxSize()) {
+        // Column layout to arrange items vertically
         Column(
             modifier = Modifier
-                .fillMaxSize()
-                .background(SBLightGreen)
-                .align(Alignment.Center),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally) {
+                .fillMaxSize() // Fill the entire screen
+                .background(SBLightGreen) // Set background color
+                .align(Alignment.Center), // Center the column within the box
+            verticalArrangement = Arrangement.Center, // Center content vertically
+            horizontalAlignment = Alignment.CenterHorizontally // Center content horizontally
+        ) {
+            // Title text
             Text(text = "Booking Confirmation", fontSize = 30.sp, color = Color.Black)
+            // Spacer to add space
             Spacer(modifier = Modifier.height(64.dp))
+            // Confirmation message text
             Text(text = "Your booking is confirmed!", fontSize = 16.sp, color = Color.Black)
-
+            // Image for the confirmation tick
             Image(
                 painter = painterResource(id = R.drawable.tick),
                 contentDescription = null,
-                contentScale = ContentScale.Crop,
+                contentScale = ContentScale.Crop, // Crop the image to fit
                 modifier = Modifier
-                    .size(350.dp, 300.dp)
-                    .padding(vertical = 8.dp)
+                    .size(350.dp, 300.dp) // Set image size
+                    .padding(vertical = 8.dp) // Padding around the image
             )
-
-
         }
     }
 }
+
+// Preview function to display the BookingConfirm composable in Android Studio
 @Preview
 @Composable
 fun BookingConfirmPreview() {
